@@ -1,4 +1,3 @@
-# It's my Snake Game!
 import cx_Freeze
 
 executables = [cx_Freeze.Executable("game1.py")]
