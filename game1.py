@@ -41,11 +41,9 @@ def pause():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				quit()
-
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_c:
 					paused = False
-
 				elif event.key == pygame.K_q:
 					pygame.quit()
 					quit()
@@ -82,7 +80,6 @@ def game_intro():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				quit()
-
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_c:
 					intro = False
@@ -115,13 +112,10 @@ def snake(block_size, snakelist):
 
 	if direction == "right":
 		head = pygame.transform.rotate(img, 270)
-
 	if direction == "left":
 		head = pygame.transform.rotate(img, 90)
-
 	if direction == "up":
 		head = img
-
 	if direction == "down":
 		head = pygame.transform.rotate(img, 180)
 
@@ -151,13 +145,10 @@ def gameLoop():
 	direction = 'right'
 	gameExit = False
 	gameOver = False
-
 	lead_x = display_width/2
 	lead_y = display_height/2
-
 	lead_x_change = 0
 	lead_y_change = 0
-
 	snakeList = []
 	snakeLenght = 1
 
@@ -182,7 +173,6 @@ def gameLoop():
 				if event.type == pygame.QUIT:
 					gameOver = False
 					gameExit = True
-
 				if event.type == pygame.KEYDOWN:
 					if event.key == pygame.K_q:
 						gameExit = True
@@ -210,7 +200,6 @@ def gameLoop():
 					direction = "down"
 					lead_y_change = block_size
 					lead_x_change = 0
-
 				elif event.key == pygame.K_p:
 					pause()
 
@@ -219,9 +208,7 @@ def gameLoop():
 
 		lead_x += lead_x_change
 		lead_y += lead_y_change
-
 		gameDisplay.fill(white)
-
 		gameDisplay.blit(appleimg, (randAppleX, randAppleY))
 		
 		snakeHead = []
@@ -237,20 +224,14 @@ def gameLoop():
 				gameOver = True
 
 		snake(block_size, snakeList)
-
 		score(snakeLenght-1)
-
 		pygame.display.update()
 
 		if lead_x > randAppleX and lead_x < randAppleX + AppleThickness or lead_x + block_size > randAppleX and lead_x + block_size < randAppleX + AppleThickness:
-
 			if lead_y > randAppleY and lead_y < randAppleY + AppleThickness:
-
 				randAppleX,randAppleY = randAppleGen()
 				snakeLenght += 1
-
 			elif lead_y + block_size > randAppleY and lead_y + block_size < randAppleY + AppleThickness:
-
 				randAppleX,randAppleY = randAppleGen()
 				snakeLenght += 1
 
