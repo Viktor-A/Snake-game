@@ -222,8 +222,6 @@ def gameLoop():
 
 		gameDisplay.fill(white)
 
-		#pygame.draw.rect(gameDisplay, red, [randAppleX, randAppleY,AppleThickness,AppleThickness])
-
 		gameDisplay.blit(appleimg, (randAppleX, randAppleY))
 		
 		snakeHead = []
@@ -241,8 +239,6 @@ def gameLoop():
 		snake(block_size, snakeList)
 
 		score(snakeLenght-1)
-
-
 
 		pygame.display.update()
 
